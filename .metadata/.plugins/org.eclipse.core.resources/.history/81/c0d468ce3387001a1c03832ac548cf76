@@ -1,0 +1,43 @@
+/*
+ * array.c
+ *
+ *  Created on: 16 abr. 2020
+ *      Author: Nahu_
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "array.h"
+
+int initColegio(colegioE pArray[],int limite)
+{
+	int retorno = -1;
+
+	if(pArray != NULL && limite > 0)
+	{
+		for(; limite > 0; limite--)
+		{
+			pArray[limite-1].isEmpty = 1;
+		}
+		retorno=0;
+	}
+	return retorno;
+}
+
+/*
+int imprimirArrayInt(int *pArray,int limite)
+{
+	int i;
+	int retorno=-1;
+	if(pArray != NULL && limite > 0)
+	{
+		for(i = 0; i < limite; i++)
+		{
+			printf("El indice [%d] tiene como valor %d\n", i, pArray[i]);
+		}
+		retorno=0;
+	}
+	return retorno;
+}
+*/

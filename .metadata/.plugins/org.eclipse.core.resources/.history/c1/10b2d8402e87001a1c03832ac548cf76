@@ -1,0 +1,27 @@
+/*
+ ============================================================================
+ Name        : Clase7.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "utn.h"
+#include "array.h"
+#define QTY 200
+
+int main(void) {
+
+	int val = 25;
+	do{
+		val -= 5;
+		printf("%d -",val);
+
+	}while(val);
+
+	return 0;
+}

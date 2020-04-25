@@ -1,0 +1,90 @@
+/*
+ * array.c
+ *
+ *  Created on: 16 abr. 2020
+ *      Author: Nahu_
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "array.h"
+
+int initColegio(colegioE pArray[],int limite)
+{
+	int retorno = -1;
+
+	if(pArray != NULL && limite > 0)
+	{
+		for(; limite > 0; limite--)
+		{
+			pArray[limite-1].isEmpty = 1;
+		}
+		retorno=0;
+	}
+	return retorno;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+int cargarPersona(colegioE array[], int size)
+{
+    int retorno=-1;
+    int posicion;
+    if(array!=NULL && size>0)
+    {
+        if(fantasma_buscarEmpty(array,size,&posicion)==-1)                          //cambiar fantasma
+        {
+            printf("\nNo hay lugares vacios");
+        }
+        else
+        {
+        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&array[posicion].legajo);
+            utn_getName("Ingrese el sexo (femenino o masculino): ","\n\nError. Intentelo de nuevo",1,51,3,array[posicion].sexo);
+            utn_getUnsignedInt("\nIngrese la edad: ","\nError",1,sizeof(int),1,99,3,&array[posicion].edad);
+            utn_getUnsignedInt("\nIngrese la nota1P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota1P);
+            utn_getUnsignedInt("\nIngrese la nota2P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota2P);
+            utn_getTexto("Ingrese el Apeliido: ","\nError",1,51,1,array[posicion].apellidos);
+            array[posicion].isEmpty=0;
+            retorno=0;
+        }
+    }
+    return retorno;
+}
+
+
+int fantasma_buscarEmpty(colegioE array[], int size, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0 && posicion!=NULL)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmpty==1)
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+int imprimirArrayInt(int *pArray,int limite)
+{
+	int i;
+	int retorno=-1;
+	if(pArray != NULL && limite > 0)
+	{
+		for(i = 0; i < limite; i++)
+		{
+			printf("El indice [%d] tiene como valor %d\n", i, pArray[i]);
+		}
+		retorno=0;
+	}
+	return retorno;
+}
+*/
