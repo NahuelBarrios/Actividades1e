@@ -32,5 +32,4 @@ int mostrarEstudiantes(colegioE array[], int size);
 
 int estructuraOrdenada(colegioE array[], int size);
 
-int buscarID(colegioE array[], int size, int valorBuscado, int* posicion);
 #endif /* ARRAY_H_ */

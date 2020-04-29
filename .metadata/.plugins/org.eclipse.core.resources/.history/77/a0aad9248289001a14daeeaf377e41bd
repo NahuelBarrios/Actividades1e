@@ -33,6 +33,7 @@ int cargarPersona(colegioE array[], int size)
 {
     int retorno=-1;
     int posicion;
+    int i;
     int bufferLegajo;
     if(array!=NULL && size>0)
     {
@@ -42,23 +43,34 @@ int cargarPersona(colegioE array[], int size)
         }
         else
         {
-        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&bufferLegajo); // ERROR POR ARREGLAR
-        	  if(buscarID(array,size,bufferLegajo,&posicion)==-1)
-        	  {
-        		  printf("\nYa existe este ID");
-        	  }
-        	  else
-        	  {
-        		  utn_getName("\nIngrese el sexo (femenino o masculino): ","\n\nError. Intentelo de nuevo",1,51,3,array[posicion].sexo);
-        		  utn_getUnsignedInt("\nIngrese la edad: ","\nError",1,sizeof(int),1,99,3,&array[posicion].edad);
-        		  utn_getUnsignedInt("\nIngrese la nota1P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota1P);
-        		  utn_getUnsignedInt("\nIngrese la nota2P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota2P);
-        		  utn_getTexto("\nIngrese el Apellido: ","\nError",1,51,1,array[posicion].apellidos);
-        		  array[posicion].promedio= (array[posicion].nota1P + array[posicion].nota2P)/2;
-        		  array[posicion].isEmpty=0;
-        		  retorno=0;
-        	  }
+        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&bufferLegajo);
+        	for(i=0;i<size;i++)
+        	{
+        		if(array[i].isEmpty==1)
+        			{
+        			continue;
+        			}
+        		else if(array[posicion].legajo==bufferLegajo)
+        		{
+        			printf("\nEse id.Ya esta cargado  \n");
+        			break;
+        		}
+        		else
+				{
+        			array[posicion].legajo = bufferLegajo;
+        			retorno =0;
+        		}
+        	}
 
+
+            utn_getName("\nIngrese el sexo (femenino o masculino): ","\n\nError. Intentelo de nuevo",1,51,3,array[posicion].sexo);
+            utn_getUnsignedInt("\nIngrese la edad: ","\nError",1,sizeof(int),1,99,3,&array[posicion].edad);
+            utn_getUnsignedInt("\nIngrese la nota1P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota1P);
+            utn_getUnsignedInt("\nIngrese la nota2P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota2P);
+            utn_getTexto("\nIngrese el Apeliido: ","\nError",1,51,1,array[posicion].apellidos);
+            array[posicion].promedio= (array[posicion].nota1P + array[posicion].nota2P)/2;
+            array[posicion].isEmpty=0;
+            retorno=0;
         }
     }
     return retorno;
@@ -77,29 +89,6 @@ int buscarEmpty(colegioE array[], int size, int* posicion)
             {
                 retorno=0;
                 *posicion=i;
-                break;
-            }
-        }
-    }
-    return retorno;
-}
-
-int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
-{
-    int retorno=-1;
-    int i;
-    if(array!= NULL && size>=0)
-    {
-        for(i=0;i<size;i++)
-        {
-            if(array[i].isEmpty==1)
-                continue;
-            else if(array[i].isEmpty==0 && valorBuscado != array[i].legajo )
-            {
-            	array[i].legajo=valorBuscado;
-                retorno=0;
-                *posicion=i;
-
                 break;
             }
         }

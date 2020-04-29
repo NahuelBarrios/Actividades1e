@@ -42,13 +42,14 @@ int cargarPersona(colegioE array[], int size)
         }
         else
         {
-        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&bufferLegajo); // ERROR POR ARREGLAR
+        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&bufferLegajo);
         	  if(buscarID(array,size,bufferLegajo,&posicion)==-1)
         	  {
         		  printf("\nYa existe este ID");
         	  }
         	  else
         	  {
+        		  array[posicion].legajo=bufferLegajo;
         		  utn_getName("\nIngrese el sexo (femenino o masculino): ","\n\nError. Intentelo de nuevo",1,51,3,array[posicion].sexo);
         		  utn_getUnsignedInt("\nIngrese la edad: ","\nError",1,sizeof(int),1,99,3,&array[posicion].edad);
         		  utn_getUnsignedInt("\nIngrese la nota1P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota1P);
@@ -96,10 +97,8 @@ int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
                 continue;
             else if(array[i].isEmpty==0 && valorBuscado != array[i].legajo )
             {
-            	array[i].legajo=valorBuscado;
                 retorno=0;
                 *posicion=i;
-
                 break;
             }
         }

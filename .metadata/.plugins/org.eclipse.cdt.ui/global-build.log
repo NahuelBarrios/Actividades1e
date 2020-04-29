@@ -1,4 +1,4 @@
-20:03:31 **** Incremental Build of configuration Debug for project Clase7 ****
+01:15:51 **** Incremental Build of configuration Debug for project Clase7 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\array.o" "..\\src\\array.c" 
 gcc -o Clase7.exe "src\\Clase7.o" "src\\array.o" "src\\utn.o" 
