@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : Clase7.c
+ Name        : Clase11.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -10,17 +10,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "array.h"
-#define QTY 3
 
 int main(void) {
+	setbuf(stdout,NULL);
 
-	int val = 25;
-	do{
-		val -= 5;
-		printf("%d -",val);
-
-	}while(val);
 
 	return 0;
 }

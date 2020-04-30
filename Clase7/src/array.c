@@ -11,6 +11,7 @@
 #include <string.h>
 #include "array.h"
 #include "utn.h"
+#include "carreras.h"
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 int initColegio(colegioE pArray[],int limite)
@@ -28,7 +29,23 @@ int initColegio(colegioE pArray[],int limite)
 	return retorno;
 }
 
+int initFecha(fechaE pArray[],int limite)
+{
+	int retorno = -1;
+
+	if(pArray != NULL && limite > 0)
+	{
+		for(; limite > 0; limite--)
+		{
+			pArray[limite-1].isEmpty = 1;
+		}
+		retorno=0;
+	}
+	return retorno;
+}
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
 int cargarPersona(colegioE array[], int size)
 {
     int retorno=-1;
@@ -46,6 +63,7 @@ int cargarPersona(colegioE array[], int size)
         	  if(buscarID(array,size,bufferLegajo,&posicion)==-1)
         	  {
         		  printf("\nYa existe este ID");
+
         	  }
         	  else
         	  {
@@ -64,6 +82,76 @@ int cargarPersona(colegioE array[], int size)
     return retorno;
 }
 
+*/
+
+int cargarPersona(colegioE array[], int size,int* contadorLegajo)
+{
+    int retorno=-1;
+    int posicion;
+   // int bufferLegajo;
+    if(array!=NULL && size>0)
+    {
+        if(buscarEmpty(array,size,&posicion)==-1 )
+        {
+            printf("\nNo hay lugares vacios");
+        }
+        else
+        {
+        	/*
+        	utn_getUnsignedInt("\nIngrese el legajo: ","\nError.",1,sizeof(int),1,size,3,&bufferLegajo); // ERROR POR ARREGLAR
+        	  if(buscarID(array,size,bufferLegajo,&posicion)==-1)
+        	  {
+        		  printf("\nYa existe este ID");
+        	  }
+        	  */
+        	  //else
+        	  //{
+        			(*contadorLegajo)++;
+        			array[posicion].legajo = *contadorLegajo;
+        		  utn_getName("\nIngrese el sexo (femenino o masculino): ","\n\nError. Intentelo de nuevo",1,51,3,array[posicion].sexo);
+        		  utn_getUnsignedInt("\nIngrese la edad: ","\nError",1,sizeof(int),1,99,3,&array[posicion].edad);
+        		  utn_getUnsignedInt("\nIngrese la nota1P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota1P);
+        		  utn_getUnsignedInt("\nIngrese la nota2P: ","\nError",1,sizeof(int),1,10,3,&array[posicion].nota2P);
+        		  utn_getTexto("\nIngrese el Apellido: ","\nError",1,51,1,array[posicion].apellidos);
+        		  array[posicion].promedio= (float)(array[posicion].nota1P + array[posicion].nota2P)/2;
+        		  array[posicion].isEmpty=0;
+        		  retorno=0;
+        	  //}
+
+        }
+    }
+    return retorno;
+}
+
+int cargarFecha(fechaE array[],int size,int* contadorFecha)
+{
+	 int retorno=-1;
+	    int posicion;
+
+	if(array != NULL && size > 0)
+	{
+		if(buscarEmptyfecha(array,size,&posicion)==-1)
+		{
+			 printf("\nNo hay lugares vacios");
+		}
+
+		else
+		{
+			printf("\nAgregara la fecha\n");
+			(*contadorFecha)++;
+			array[posicion].idFecha = *contadorFecha;
+			utn_getUnsignedInt("\nIngrese dia: ","\nError",1,sizeof(int),1,31,3,&array[posicion].dia);
+			utn_getUnsignedInt("\nIngrese mes: ","\nError",1,sizeof(int),1,12,3,&array[posicion].mes);
+			utn_getUnsignedInt("\nIngrese anio: ","\nError",1,sizeof(int),1900,2020,3,&array[posicion].anio);
+			array[posicion].isEmpty = 0;
+			retorno = 0;
+		}
+	}
+
+
+	   return retorno;
+
+}
 
 int buscarEmpty(colegioE array[], int size, int* posicion)
 {
@@ -84,7 +172,26 @@ int buscarEmpty(colegioE array[], int size, int* posicion)
     return retorno;
 }
 
-int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
+int buscarEmptyfecha(fechaE array[], int size, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0 && posicion!=NULL)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmpty==1)
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+/*int buscarLegajo(colegioE array[], int size, int valorBuscado)
 {
     int retorno=-1;
     int i;
@@ -94,12 +201,52 @@ int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].isEmpty==0 && valorBuscado != array[i].legajo )
+            else if(array[i].isEmpty==0 &&   array[i].legajo != valorBuscado)
+            {
+            	array[i].legajo=valorBuscado;
+                retorno=0;
+
+
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+*/
+
+int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0 && valorBuscado>=0 && posicion!= NULL)  //agregue validacion para los parametros
+    {																// valorBuscado y posicion
+        for(i=0;i<size;i++)
+        {	/*codigo anterior:
+         if(array[i].isEmpty==1)
+                continue;
+            else if(array[i].isEmpty==0 || valorBuscado != array[i].legajo )
             {
             	array[i].legajo=valorBuscado;
                 retorno=0;
                 *posicion=i;
-
+​
+                break;
+            }
+        */
+        	// codigo solucion
+        	// lo que hice fue cambiar la primera comparacion del if por ==0 porque era cuando estaba ocupado y le agrege un || para la situacion donded el
+        	// el legajo ya existiera y no se repita.
+        	// despues el else if lo compare con ==1 que es cuando estaba vacio.
+        	// en los dos casos le puse BREAK ya que si encuentra el numero de legajo igual o el isEmpty en 0 sale y no te deja ingresarlo.
+        	// no se si me explique bien ajjaja
+            if(array[i].isEmpty==0 && valorBuscado == array[i].legajo)
+                break;
+            else if(array[i].isEmpty==1)
+            {
+            	array[i].legajo=valorBuscado;
+                retorno=0;
+                *posicion=i;
                 break;
             }
         }
@@ -108,7 +255,7 @@ int buscarID(colegioE array[], int size, int valorBuscado, int* posicion)
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-int mostrarUnEstudiante(colegioE array[], int size,int idBuscado)
+int mostrarUnEstudiante(colegioE array[], int size,int idBuscado,fechaE array2[],int size2)
 {
     int retorno=-1;
     int i;
@@ -116,12 +263,14 @@ int mostrarUnEstudiante(colegioE array[], int size,int idBuscado)
     {
         for(i=0;i<size;i++)
         {
-        	if(array[i].isEmpty== 1)
+        	if(array[i].isEmpty== 1 && array2[i].isEmpty == 1)
         		continue;
-            if(array[i].isEmpty==0 && array[i].legajo == idBuscado )
-            	 printf("\n******************************************************\n Legajo: %d\nSexo: %s\nedad: %d\nnotap1: %d\nnotap2: %d\n apellido: %s\npromedio: %.2f",
-            	                       array[i].legajo,array[i].sexo,array[i].edad,array[i].nota1P,array[i].nota2P,array[i].apellidos,array[i].promedio);
-            else
+            if(array[i].legajo==idBuscado && array2[i].idFecha == idBuscado )
+            {
+            	 printf("\n******************************************************\n Legajo: %d\nSexo: %s\nedad: %d\nnotap1: %d\nnotap2: %d\n apellido: %s\npromedio: %.2f\nFecha: %d / %d /%d",
+            	                       array[i].legajo,array[i].sexo,array[i].edad,array[i].nota1P,array[i].nota2P,array[i].apellidos,array[i].promedio,array2[i].dia,array2[i].mes,array2[i].anio);
+            }
+            	 else
                 printf("\nEse legajo no existe papu :(.\n");
         }
         retorno=0;

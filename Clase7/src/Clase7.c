@@ -30,41 +30,53 @@ Ordenar por legajo
 #include <stdlib.h>
 #include "utn.h"
 #include "array.h"
+#include "carreras.h"
 #define QTY 200
+#define QTY2 200
 
 int main(void)
 {
 	setbuf(stdout,NULL);
 
 	colegioE arrayColegio[QTY];
+	fechaE arrayFecha[QTY];
+	carreraE arrayCarrera[] = {{1000,"TUP"},{1001,"TUSI"},{1002,"LIC"}};
 
 	initColegio(arrayColegio,QTY);
+	initFecha(arrayFecha,QTY2);
 
 	int option;
 	int idUnEstudiante;
+	int contId = 0;
+	int contIdFecha = 0;
 
-	while(option !=5)
+	while(option !=7)
 	{
-		utn_getUnsignedInt("\n\nBienvenidos\n\n1-Cargar Estudiante\n2-Mostrar Estudiante especifico\n3-Mostrar todo\n4-Ordenar por legajo\n5-Salir\nElija una opcion: ","\n\nError Ingrese opcion valida\n\n"
+		utn_getUnsignedInt("\n\nBienvenidos\n\n1-Cargar Estudiante\n2-Baja\n3-Modificacion\n4-Mostrar Estudiante especifico\n5-Mostrar todo\n6-Ordenar por legajo\n7-Salir\nElija una opcion: ","\n\nError Ingrese opcion valida\n\n"
 				,1,sizeof(int),1,5,3,&option);
 
 		switch(option)
 		{
 		case 1: // Cargar osea alta :v
-			cargarPersona(arrayColegio,QTY);
+			cargarPersona(arrayColegio,QTY,&contId);
+			cargarFecha(arrayFecha,QTY2,&contIdFecha);
 		break;
-		case 2: // mostrar un solo estudiante
+		case 2://BAJA
+			break;
+		case 3://MODIFICACION
+			break;
+		case 4: // mostrar un solo estudiante
 			utn_getUnsignedInt("\nIngrese el legajo a mostrar: \n","\nError,Opcion no valida\n",1,sizeof(int),0,QTY,3,&idUnEstudiante);
-			mostrarUnEstudiante(arrayColegio,QTY,idUnEstudiante);
+			mostrarUnEstudiante(arrayColegio,QTY,idUnEstudiante,arrayFecha,QTY2);
 		break;
-		case 3: //mostrar todos los estudiantes
+		case 5: //mostrar todos los estudiantes
 			mostrarEstudiantes(arrayColegio,QTY);
 			break;
-		case 4://ordenar por apellido
+		case 6://ordenar por apellido
 			estructuraOrdenada(arrayColegio,QTY);
 			printf("\nSe ha ordenado por apellido de forma ascendente\n");
 			break;
-		case 5:
+		case 7:
 			printf("\n vuelva pronto \n");
 			break;
 
