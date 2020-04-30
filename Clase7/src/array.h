@@ -43,13 +43,15 @@ int buscarEmpty(colegioE array[], int size, int* posicion);
 
 int buscarEmptyfecha(fechaE array[], int size, int* posicion);
 
+int baja(colegioE array[], int size,fechaE array2[],int size2);
+
 int mostrarUnEstudiante(colegioE array[], int size,int idBuscado,fechaE array2[],int size2);
 
-int mostrarEstudiantes(colegioE array[], int size);
+int mostrarEstudiantes(colegioE array[], int size,fechaE array2[],int size2);
 
 int estructuraOrdenada(colegioE array[], int size);
 
-int buscarLegajo(colegioE array[], int size, int valorBuscado);
+int buscarLegajo(colegioE array[], int size, int valorBuscado, int* posicion);
 
-int buscarID(colegioE array[], int size, int valorBuscado, int* posicion);
+int buscarID(fechaE array[], int size, int valorBuscado, int* posicion);
 #endif /* ARRAY_H_ */

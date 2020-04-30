@@ -62,6 +62,8 @@ int main(void)
 			cargarFecha(arrayFecha,QTY2,&contIdFecha);
 		break;
 		case 2://BAJA
+			baja(arrayColegio,QTY,arrayFecha,QTY2);
+			printf("\nSe realizo la baja\n");
 			break;
 		case 3://MODIFICACION
 			break;
@@ -70,7 +72,7 @@ int main(void)
 			mostrarUnEstudiante(arrayColegio,QTY,idUnEstudiante,arrayFecha,QTY2);
 		break;
 		case 5: //mostrar todos los estudiantes
-			mostrarEstudiantes(arrayColegio,QTY);
+			mostrarEstudiantes(arrayColegio,QTY,arrayFecha,QTY2);
 			break;
 		case 6://ordenar por apellido
 			estructuraOrdenada(arrayColegio,QTY);
