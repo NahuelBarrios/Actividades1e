@@ -93,8 +93,8 @@ int bajaOrquesta(eOrquesta array[], int sizeArray)
     		}
     		else
     		{
-    			printf("\n\nID: %d\nNombre de orquesta: %s\nLugar : %s\nTipo de orquesta: %d\nId Musico: %d\n**************************************",
-    			                    array[posicion].idOrquesta,array[posicion].nombreOrquesta,array[posicion].lugarOrquesta,array[posicion].tipoOrquesta,array[posicion].idMusico);
+    			printf("\n**************************************\nID: %d\nNombre de orquesta: %s\nLugar : %s\nTipo de orquesta: %d\nId Musico: %d\n",
+    			                    array[i].idOrquesta,array[i].nombreOrquesta,array[i].lugarOrquesta,array[i].tipoOrquesta,array[i].idMusico);
     		}
     	}
 
@@ -106,13 +106,12 @@ int bajaOrquesta(eOrquesta array[], int sizeArray)
         }
         else
         {
-
+        	array[posicion].isEmptyOrquesta=1;
             array[posicion].idOrquesta=0;
             strcpy(array[posicion].nombreOrquesta,"");
             strcpy(array[posicion].lugarOrquesta,"");
             array[posicion].tipoOrquesta=0;
             array[posicion].idMusico=0;
-            array[posicion].isEmptyOrquesta=1;
             retorno=0;
         }
     }
