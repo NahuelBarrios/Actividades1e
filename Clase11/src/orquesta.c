@@ -138,3 +138,24 @@ int buscarIdOrquesta(eOrquesta array[], int size, int valorBuscado, int* posicio
     }
     return retorno;
 }
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int listarOrquesta(eOrquesta array[], int size)
+{
+    int retorno=-1;
+    int i;
+    if(array!=NULL && size>=0)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmptyOrquesta==1)
+                continue;
+            else
+            	printf("\n**************************************\nID: %d\nNombre de orquesta: %s\nLugar : %s\nTipo de orquesta: %d\nId Musico: %d\n",
+            	    			                    array[i].idOrquesta,array[i].nombreOrquesta,array[i].lugarOrquesta,array[i].tipoOrquesta,array[i].idMusico);
+        }
+        retorno=0;
+    }
+    return retorno;
+}

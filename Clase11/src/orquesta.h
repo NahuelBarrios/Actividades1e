@@ -30,4 +30,6 @@ int bajaOrquesta(eOrquesta array[], int sizeArray);
 
 int buscarIdOrquesta(eOrquesta array[], int size, int valorBuscado, int* posicion);
 
+int listarOrquesta(eOrquesta array[], int size);
+
 #endif /* ORQUESTA_H_ */
