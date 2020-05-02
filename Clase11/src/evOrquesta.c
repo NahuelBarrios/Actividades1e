@@ -46,7 +46,9 @@ int main(void) {
 			printf("\nSe cargo la orquesta.\n");
 			break;
 
-		case 2:
+		case 2: // Baja
+			bajaOrquesta(arrayOrquesta,QTY_ORQUESTA);
+			printf("\nSe realizo la baja\n");
 			break;
 
 		case 3:

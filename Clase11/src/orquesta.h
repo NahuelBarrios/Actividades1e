@@ -14,6 +14,7 @@ typedef struct
 	char nombreOrquesta[51];
 	char lugarOrquesta[51];
 	int tipoOrquesta;
+	int idMusico;
 	int isEmptyOrquesta;
 
 
@@ -24,5 +25,9 @@ int inicializarOrquesta(eOrquesta array[], int size);
 int altaOrquesta(eOrquesta array[], int size, int* contadorID);
 
 int buscarEmptyOrquesta(eOrquesta array[], int size, int* posicion);
+
+int bajaOrquesta(eOrquesta array[], int sizeArray);
+
+int buscarIdOrquesta(eOrquesta array[], int size, int valorBuscado, int* posicion);
 
 #endif /* ORQUESTA_H_ */
