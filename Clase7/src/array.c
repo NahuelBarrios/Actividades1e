@@ -287,11 +287,11 @@ int baja(colegioE array[], int size,fechaE array2[],int size2)
         else
         {
         	 array2[posicion2].idFecha=0;
-        	            array2[posicion2].dia=0;
-        	            array2[posicion2].mes=0;
-        	            array2[posicion2].anio=0;
-        	            array2[posicion2].isEmpty=1;
-        	            retorno=0;
+        	 array2[posicion2].dia=0;
+        	 array2[posicion2].mes=0;
+        	 array2[posicion2].anio=0;
+        	 array2[posicion2].isEmpty=1;
+        	 retorno=0;
         }
         }
     }
