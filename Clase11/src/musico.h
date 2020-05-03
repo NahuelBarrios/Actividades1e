@@ -27,4 +27,5 @@ int altaMusico(eMusico array[], int size, int* contadorID);
 
 int buscarEmptyMusico(eMusico array[], int size, int* posicion);
 
+
 #endif /* MUSICO_H_ */

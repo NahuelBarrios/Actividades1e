@@ -44,8 +44,8 @@ int altaMusico(eMusico array[], int size, int* contadorID)
             array[posicion].isEmptyMusico=0;
             utn_getName("\nIngrese Nombre del musico: : ","\nError",1,51,1,array[posicion].nombreMusico);
             utn_getName("\nIngrese Apellido del musico: : ","\nError",1,51,1,array[posicion].apellidoMusico);
-            utn_getUnsignedInt("\nIngrese la edad del musico: ","\nError",1,sizeof(int),1,1,1,&array[posicion].edadMusico);
-            printf("\nID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
+            utn_getUnsignedInt("\nIngrese la edad del musico: ","\nError",1,sizeof(int),1,60,1,&array[posicion].edadMusico);
+            printf("\nID: %d\nnombre de musico: %s\napellido: %s\nedad: %d\n",
                    array[posicion].idMusico,array[posicion].nombreMusico,array[posicion].apellidoMusico,array[posicion].edadMusico);
             retorno=0;
         }

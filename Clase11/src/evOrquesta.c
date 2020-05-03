@@ -13,6 +13,7 @@
 #include "utn.h"
 #include "orquesta.h"
 #include "musico.h"
+#include "flag.h"
 #include "instrumento.h"
 #define QTY_ORQUESTA 50
 #define QTY_MUSICO 1000
@@ -37,12 +38,13 @@ int main(void) {
 
 	while(option != 10)
 	{
-		utn_getUnsignedInt("\nMenu\n\n1-Alta Orquesta\n2-Baja Orquesta\n3-Imprimir Orquesta\n4-Alta Musico","\nError\n",1,sizeof(int),1,10,3,&option);
+		utn_getUnsignedInt("\nMenu\n\n1-Alta Orquesta\n2-Baja Orquesta\n3-Imprimir Orquesta\n4-Alta Musico",
+				"\nError\n",1,sizeof(int),1,10,3,&option);
 
 		switch(option)
 		{
 		case 1:// Alta
-			altaOrquesta(arrayOrquesta,QTY_ORQUESTA,&idOrquesta);
+			altaOrquesta(arrayOrquesta,QTY_ORQUESTA,&idOrquesta,arrayMusico,QTY_MUSICO);
 			printf("\nSe cargo la orquesta.\n");
 			break;
 

@@ -22,8 +22,6 @@ typedef struct
 
 int inicializarOrquesta(eOrquesta array[], int size);
 
-int altaOrquesta(eOrquesta array[], int size, int* contadorID);
-
 int buscarEmptyOrquesta(eOrquesta array[], int size, int* posicion);
 
 int bajaOrquesta(eOrquesta array[], int sizeArray);
@@ -31,5 +29,6 @@ int bajaOrquesta(eOrquesta array[], int sizeArray);
 int buscarIdOrquesta(eOrquesta array[], int size, int valorBuscado, int* posicion);
 
 int listarOrquesta(eOrquesta array[], int size);
+
 
 #endif /* ORQUESTA_H_ */
