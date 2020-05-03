@@ -35,8 +35,8 @@ int altaInstrumento(eInstrumento array[], int size, int* contadorID)
             array[posicion].idInstrumento=*contadorID;
             array[posicion].isEmptyInstrumento=0;
             utn_getTexto("\nIngrese el nombre del instrumento : ","\nError",1,51,1,array[posicion].nombreInstrumento);
-            utn_getUnsignedInt("\nIngrese tipo de intrumento 1-Cuerdas- 2-(Viento-Madera) 3-(Viento-Metal) 4-Percusión: ","\nError",1,sizeof(int),1,4,3,&array[posicion].tipoInstrumento);
-            printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
+            utn_getTexto("\nIngrese tipo de intrumento: Cuerdas - (Viento-Madera) - (Viento-Metal) - Percusión: ","\nError",1,51,1,array[posicion].tipoInstrumento);
+            printf("\n******************\n ID: %d\nNombre instrumento: %s\nTipo instrumento: %s",
                    array[posicion].idInstrumento,array[posicion].nombreInstrumento,array[posicion].tipoInstrumento);
             retorno=0;
         }

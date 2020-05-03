@@ -1,5 +1,26 @@
-19:17:23 **** Incremental Build of configuration Debug for project Clase11 ****
+20:11:11 **** Incremental Build of configuration Debug for project Clase11 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\flag.o" "..\\src\\flag.c" 
-gcc -o Clase11.exe "src\\evOrquesta.o" "src\\flag.o" "src\\instrumento.o" "src\\musico.o" "src\\orquesta.o" "src\\utn.o" 
-Info: Nothing to build for Clase11
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\evOrquesta.o" "..\\src\\evOrquesta.c" 
+In file included from ..\src\evOrquesta.c:16:
+..\src\flag.h:15:88: error: unknown type name 'eInstrumento'
+   15 | int altaMusico(eMusico array[], int size, int* contadorID,eOrquesta array2[],int size2,eInstrumento array3[],int size3);
+      |                                                                                        ^~~~~~~~~~~~
+..\src\flag.h:17:5: error: conflicting types for 'buscarIdOrquesta'
+   17 | int buscarIdOrquesta(eMusico array[],int size,eOrquesta array2[], int size2, int valorBuscado, int* posicion);
+      |     ^~~~~~~~~~~~~~~~
+In file included from ..\src\evOrquesta.c:14:
+..\src\orquesta.h:29:5: note: previous declaration of 'buscarIdOrquesta' was here
+   29 | int buscarIdOrquesta(eOrquesta array[], int size, int valorBuscado, int* posicion);
+      |     ^~~~~~~~~~~~~~~~
+In file included from ..\src\evOrquesta.c:16:
+..\src\flag.h:19:50: error: unknown type name 'eInstrumento'
+   19 | int buscarIdInstrumento(eMusico array[],int size,eInstrumento array2[], int size2, int valorBuscado, int* posicion);
+      |                                                  ^~~~~~~~~~~~
+..\src\evOrquesta.c: In function 'main':
+..\src\evOrquesta.c:60:4: error: too many arguments to function 'altaMusico'
+   60 |    altaMusico(arrayMusico,QTY_MUSICO,&idMusico,arrayOrquesta,QTY_ORQUESTA,arrayInstrumento,QTY_INSTRUMENTO);
+      |    ^~~~~~~~~~
+In file included from ..\src\evOrquesta.c:15:
+..\src\musico.h:26:5: note: declared here
+   26 | int altaMusico(eMusico array[], int size, int* contadorID);
+      |     ^~~~~~~~~~

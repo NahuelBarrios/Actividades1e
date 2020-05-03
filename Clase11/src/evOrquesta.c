@@ -56,9 +56,16 @@ int main(void) {
 		case 3:// Se imprime la lista de orquestas
 			listarOrquesta(arrayOrquesta,QTY_ORQUESTA);
 			break;
-		case 4:
-			altaMusico(arrayMusico,QTY_MUSICO,&idMusico);
+		case 4: // alta musico
+			altaMusico(arrayMusico,QTY_MUSICO,&idMusico,arrayOrquesta,QTY_ORQUESTA,arrayInstrumento,QTY_INSTRUMENTO);
 			printf("\nSe cargo el musico\n");
+			break;
+		case 5:// modificar musico
+
+			break;
+		case 6:
+			break;
+		case 7:
 			break;
 		case 8:
 			altaInstrumento(arrayInstrumento,QTY_INSTRUMENTO,&idInstrumento);

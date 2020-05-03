@@ -12,7 +12,7 @@ typedef struct
 {
 	int idInstrumento;
 	int nombreInstrumento;
-	int tipoInstrumento;// 1-Cuerdas- 2-(Viento-Madera) 3-(Viento-Metal) 4-Percusión
+	char tipoInstrumento[51];// 1-Cuerdas- 2-(Viento-Madera) 3-(Viento-Metal) 4-Percusión
 	int isEmptyInstrumento;
 
 }eInstrumento;

@@ -15,7 +15,7 @@ typedef struct
 	char apellidoMusico[51];
 	int edadMusico;
 	int idOrquesta;
-	int idIntrumento;
+	int idInstrumento;
 	int isEmptyMusico;
 
 }eMusico;
