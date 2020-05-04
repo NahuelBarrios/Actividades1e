@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utn.h"
 #include "orquesta.h"
 #include "musico.h"
@@ -43,45 +44,46 @@ int main(void) {
 
 		switch(option)
 		{
-		case 1:// Alta
+		case 1:
 			altaOrquesta(arrayOrquesta,QTY_ORQUESTA,&idOrquesta);
 			printf("\nSe cargo la orquesta.\n");
 			break;
 
-		case 2: // Baja
+		case 2:
 			bajaOrquesta(arrayOrquesta,QTY_ORQUESTA);
 			printf("\nSe realizo la baja\n");
 			break;
 
-		case 3:// Se imprime la lista de orquestas
+		case 3:
 			listarOrquesta(arrayOrquesta,QTY_ORQUESTA);
 			break;
-		case 4: // alta musico
+		case 4:
 			altaMusico(arrayMusico,QTY_MUSICO,&idMusico,arrayOrquesta,QTY_ORQUESTA,arrayInstrumento,QTY_INSTRUMENTO);
 			printf("\nSe cargo el musico\n");
 			break;
-		case 5:// modificar musico
-
+		case 5:
+			listarMusico(arrayMusico,QTY_MUSICO);
+			modificarMusico(arrayMusico,QTY_MUSICO,arrayOrquesta,QTY_ORQUESTA);
 			break;
 		case 6:
+			listarMusico(arrayMusico,QTY_MUSICO);
+			bajaMusico(arrayMusico,QTY_MUSICO);
 			break;
 		case 7:
+			imprimirMusicoConInstrumento(arrayMusico,QTY_MUSICO,arrayInstrumento,QTY_INSTRUMENTO);
 			break;
 		case 8:
 			altaInstrumento(arrayInstrumento,QTY_INSTRUMENTO,&idInstrumento);
 			printf("\nSe cargo el instrumento\n");
 			break;
 		case 9:
+			imprimirInstrumento(arrayInstrumento,QTY_INSTRUMENTO);
 			break;
 		case 10:
 			printf("\nVUELVA PRONTO\n");
 			break;
 
 		}
-
-
-
-
 
 	}
 

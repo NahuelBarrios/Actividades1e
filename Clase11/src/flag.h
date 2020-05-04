@@ -15,4 +15,7 @@ int buscarIdOrquestaParaMusico(eMusico array[],eOrquesta array2[],int size, int 
 
 int buscarIdInstrumentoParaMusico(eMusico array[],eInstrumento array2[],int size, int valorBuscado, int* posicion);
 
+int modificarMusico(eMusico array[], int size,eOrquesta arrayOrquesta[],int sizeOrquesta);
+
+int imprimirMusicoConInstrumento(eMusico array[],int size,eInstrumento arrayInstrumento[],int sizeInstrumento);
 #endif /* FLAG_H_ */

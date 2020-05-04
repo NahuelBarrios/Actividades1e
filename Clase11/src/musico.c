@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utn.h"
 #include "musico.h"
 
@@ -67,50 +68,52 @@ int listarMusico(eMusico array[], int size)
     return retorno;
 }
 
-/*
-int modificarMusico(eMusico array[], int sizeArray)
+int buscarIdMusico(eMusico array[], int size, int valorBuscado, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmptyMusico==1)
+                continue;
+            else if(array[i].idMusico==valorBuscado)
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int bajaMusico(eMusico array[], int size)
 {
     int retorno=-1;
     int posicion;
     int id;
-    char opcion;
-    if(array!=NULL && sizeArray>0)
+    if(array!=NULL && size>0)
     {
-        utn_getUnsignedInt("\nID de Musico a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);
-        if(fantasma_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,size,1,&id);
+        if(buscarIdMusico(array,size,id,&posicion)==-1)
         {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+            printf("\nNo existe este ID");
         }
         else
         {
-            do
-            {       //copiar printf de alta
-                printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                       posicion, array[posicion].idUnico,array[posicion].varInt,array[posicion].varFloat,array[posicion].varString,array[posicion].varLongString);
-                utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
-                switch(opcion)
-                {
-                    case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
-                        break;
-                    case 'B':
-                        utn_getFloat("\n: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-                        break;
-                    case 'C':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
-                        break;
-                    case 'D':
-                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);             //mensaje + cambiar campo varLongString
-                        break;
-                    case 'S':
-                        break;
-                    default:
-                        printf("\nOpcion no valida");
-                }
-            }while(opcion!='S');
+            array[posicion].isEmptyMusico=1;
+            array[posicion].idMusico=0;
+            array[posicion].edadMusico=0;
+            array[posicion].idOrquesta=0;
+            array[posicion].idInstrumento=0;
+            strcpy(array[posicion].nombreMusico,"");
+            strcpy(array[posicion].apellidoMusico,"");
             retorno=0;
         }
     }
     return retorno;
 }
-*/

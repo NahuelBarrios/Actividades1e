@@ -23,8 +23,13 @@ typedef struct
 
 int inicializarMusico(eMusico array[], int size);
 
-
 int buscarEmptyMusico(eMusico array[], int size, int* posicion);
+
+int listarMusico(eMusico array[], int size);
+
+int buscarIdMusico(eMusico array[], int size, int valorBuscado, int* posicion);
+
+int bajaMusico(eMusico array[], int size);
 
 
 #endif /* MUSICO_H_ */

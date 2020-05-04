@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utn.h"
 #include "instrumento.h"
 
@@ -34,8 +35,8 @@ int altaInstrumento(eInstrumento array[], int size, int* contadorID)
             (*contadorID)++;
             array[posicion].idInstrumento=*contadorID;
             array[posicion].isEmptyInstrumento=0;
-            utn_getTexto("\nIngrese el nombre del instrumento : ","\nError",1,51,1,array[posicion].nombreInstrumento);
-            utn_getTexto("\nIngrese tipo de intrumento: Cuerdas - (Viento-Madera) - (Viento-Metal) - Percusión: ","\nError",1,51,1,array[posicion].tipoInstrumento);
+            utn_getTexto("\nIngrese el nombre del instrumento : ","\nError",1,51,3,array[posicion].nombreInstrumento);
+            utn_getTexto("\nIngrese tipo de intrumento: Cuerdas - (Viento-Madera) - (Viento-Metal) - Percusión: ","\nError",1,51,3,array[posicion].tipoInstrumento);
             printf("\n******************\n ID: %d\nNombre instrumento: %s\nTipo instrumento: %s",
                    array[posicion].idInstrumento,array[posicion].nombreInstrumento,array[posicion].tipoInstrumento);
             retorno=0;
@@ -61,4 +62,49 @@ int buscarEmptyInstrumento(eInstrumento array[], int size, int* posicion)
         }
     }
     return retorno;
+}
+
+
+int buscarInstrumento(eInstrumento array[], int size, int valorBuscado, int* posicion)
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>=0)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmptyInstrumento==1)
+                continue;
+            else if(array[i].idInstrumento==valorBuscado)
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int imprimirInstrumento(eInstrumento array[],int size)
+{
+	int retorno=-1;
+	    int i;
+	    if(array!=NULL && size>=0)
+	    {
+	        for(i=0;i<size;i++)
+	        {
+	            if(array[i].isEmptyInstrumento==1)
+	                continue;
+	            else
+	            	printf("\n**************************************\nID: %d\nNombre de instrumento: %s\nTipo de instrumento : %s",
+	            	    			                    array[i].idInstrumento,array[i].nombreInstrumento,array[i].tipoInstrumento);
+	        }
+	        retorno=0;
+	    }
+	    return retorno;
+
+
 }
