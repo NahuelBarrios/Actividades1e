@@ -23,7 +23,6 @@ typedef struct
 
 int inicializarMusico(eMusico array[], int size);
 
-int altaMusico(eMusico array[], int size, int* contadorID);
 
 int buscarEmptyMusico(eMusico array[], int size, int* posicion);
 

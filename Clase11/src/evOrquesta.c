@@ -13,8 +13,8 @@
 #include "utn.h"
 #include "orquesta.h"
 #include "musico.h"
-#include "flag.h"
 #include "instrumento.h"
+#include "flag.h"
 #define QTY_ORQUESTA 50
 #define QTY_MUSICO 1000
 #define QTY_INSTRUMENTO 20
@@ -44,7 +44,7 @@ int main(void) {
 		switch(option)
 		{
 		case 1:// Alta
-			altaOrquesta(arrayOrquesta,QTY_ORQUESTA,&idOrquesta,arrayMusico,QTY_MUSICO);
+			altaOrquesta(arrayOrquesta,QTY_ORQUESTA,&idOrquesta);
 			printf("\nSe cargo la orquesta.\n");
 			break;
 
