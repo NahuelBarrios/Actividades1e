@@ -38,7 +38,7 @@ int main(void) {
 
 	while(option != 10)
 	{
-		utn_getUnsignedInt("\nMenu\n\n1-Alta Orquesta\n2-Baja Orquesta\n3-Imprimir Orquesta\n4-Alta Musico",
+		utn_getUnsignedInt("\nMenu\n\n1-Agregar Orquesta\n2-Eliminar Orquesta\n3-Imprimir Orquestas\n4-Agregar Musico\n5-Modificar Musicom\n6-Eliminar Musico\n7-Imprimir Musicos\n8-Agregar Instrumento\n9-Imprimir instrumentos\n10-Salir\n\nIngrese una opcion: ",
 				"\nError\n",1,sizeof(int),1,10,3,&option);
 
 		switch(option)
@@ -70,6 +70,8 @@ int main(void) {
 		case 8:
 			altaInstrumento(arrayInstrumento,QTY_INSTRUMENTO,&idInstrumento);
 			printf("\nSe cargo el instrumento\n");
+			break;
+		case 9:
 			break;
 		case 10:
 			printf("\nVUELVA PRONTO\n");

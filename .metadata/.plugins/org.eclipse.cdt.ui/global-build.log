@@ -1,2 +1,4 @@
-Info: Nothing to build for Clase11
-Info: Nothing to build for Clase11
+01:01:08 **** Incremental Build of configuration Debug for project Clase11 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\evOrquesta.o" "..\\src\\evOrquesta.c" 
+gcc -o Clase11.exe "src\\evOrquesta.o" "src\\flag.o" "src\\instrumento.o" "src\\musico.o" "src\\orquesta.o" "src\\utn.o" 
