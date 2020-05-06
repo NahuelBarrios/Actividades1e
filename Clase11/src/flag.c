@@ -164,7 +164,7 @@ int imprimirMusicoConInstrumento(eMusico array[],int size,eInstrumento arrayInst
 	int retorno=-1;
 	    int i;
 	    int bufferInstrumento;
-	    if(array!=NULL && size>=0 && arrayInstrumento != NULL && sizeInstrumento >= 0)
+	    if(array!=NULL && size>=0)
 	    {
 	        for(i=0;i<size;i++)
 	        {
@@ -181,8 +181,8 @@ int imprimirMusicoConInstrumento(eMusico array[],int size,eInstrumento arrayInst
 	            		}
 	            		else
 	            		{
-	            			printf("\n**************************************\nID: %d\nNombre de Musico: %s\nApellido de musico: %s\nId de instrumento: %d\nNombre de instrumento: %s",
-	            			array[i].idMusico,array[i].nombreMusico,array[i].apellidoMusico,array[i].idInstrumento,arrayInstrumento[i].nombreInstrumento);
+	            			printf("\n**************************************\nID: %d\nNombre de Musico: %s\nApellido de musico: %s\nId de instrumento: %d\nNombre de instrumento: %s\nTipo de instrumento: %s",
+	            			array[i].idMusico,array[i].nombreMusico,array[i].apellidoMusico,array[i].idInstrumento,arrayInstrumento[i].nombreInstrumento,arrayInstrumento[i].tipoInstrumento);
 	            		}
 	            }
 
