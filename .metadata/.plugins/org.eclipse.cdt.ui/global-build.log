@@ -1,4 +1,5 @@
-23:56:23 **** Incremental Build of configuration Debug for project Clase11 ****
+20:13:06 **** Incremental Build of configuration Debug for project repasoDeParcial ****
 Info: Internal Builder is used for build
-gcc -o Clase11.exe "src\\evOrquesta.o" "src\\flag.o" "src\\instrumento.o" "src\\musico.o" "src\\orquesta.o" "src\\utn.o" 
-Info: Nothing to build for Clase11
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\flag.o" "..\\src\\flag.c" 
+gcc -o repasoDeParcial.exe "src\\abonado.o" "src\\flag.o" "src\\llamada.o" "src\\repasoDeParcial.o" "src\\utn.o" 
+Info: Nothing to build for repasoDeParcial
