@@ -14,6 +14,7 @@
 #include "utn.h"
 #include "abonado.h"
 #include "llamada.h"
+#include "flag.h"
 #define QTY_ABONADO 5
 #define QTY_LLAMADAS 10
 
@@ -48,10 +49,16 @@ int main(void)
 			bajaAbonado(arrayAbonado,QTY_ABONADO);
 			break;
 		case 4:
-			altaLlamada(arrayLlamada,QTY_LLAMADAS,&idLlamada,arrayAbonado,QTY_ABONADO);
+			inicioLlamada(arrayLlamada,QTY_LLAMADAS,&idLlamada,arrayAbonado,QTY_ABONADO);
+			break;
+		case 5:
+			finLlamada(arrayLlamada,QTY_LLAMADAS);
+			break;
+		case 6:
 
 			break;
 		case 7:
+			printf("\nGracias vuelva pronto\n");
 			break;
 
 		default: printf("\nIngrese una opcion del 1 a 7.\n");

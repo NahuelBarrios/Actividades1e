@@ -14,7 +14,7 @@
 #include "flag.h"
 
 
-int altaLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],int size2)
+int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],int size2)
 {
     int retorno=-1;
     int posicion;
@@ -44,13 +44,14 @@ int altaLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],in
             utn_getTexto("\nIngrese motivo: FALLA 3G - FALLA LTE - FALLA EQUIPO ","\nError",1,51,3,array[posicion].motivo);
             strcpy(array[posicion].estado,"EN CURSO");
             printf("\nSu estado se encuentra EN CURSO\n");
-            utn_getFloat("\nTiempo insumido (EN SEGUNDOS): ","\nError",1,sizeof(float),1,1000,3,&array[posicion].tiempoInsumido);
 
-            printf("\n\nId Llamada: %d\nid Abonado: %d\nMotivo: %s\nEstado: %s\nTiempo insumido: %.2f",
-                   array[posicion].idLlamada,array[posicion].idAbonado,array[posicion].motivo,array[posicion].estado,array[posicion].tiempoInsumido);
+            printf("\n\nId Llamada: %d\nid Abonado: %d\nMotivo: %s\nEstado: %s",
+                   array[posicion].idLlamada,array[posicion].idAbonado,array[posicion].motivo,array[posicion].estado);
             retorno=0;
         	}
         }
     }
     return retorno;
 }
+
+

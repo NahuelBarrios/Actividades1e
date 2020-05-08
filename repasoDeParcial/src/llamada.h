@@ -21,4 +21,8 @@ typedef struct
 int inicializarLlamada(eLlamada array[], int size);
 
 int buscarEmptyLlamada(eLlamada array[], int size, int* posicion);
+
+int finLlamada(eLlamada array[], int size);
+
+int buscarIdLlamada(eLlamada array[], int size, int valorBuscado, int* posicion);
 #endif /* LLAMADA_H_ */
