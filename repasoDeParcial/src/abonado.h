@@ -14,10 +14,13 @@ int id;
 int numero;
 char nombre[51];
 char apellido[51];
+int contReclamos;
 int isEmpty;
 }eAbonado;
 
 int inicializarAbonado(eAbonado array[], int size);
+
+void hardCode(eAbonado array[],int size,int id,int numero,char name[],char lastName[]);
 
 int altaAbonado(eAbonado array[], int size, int* contadorID);
 

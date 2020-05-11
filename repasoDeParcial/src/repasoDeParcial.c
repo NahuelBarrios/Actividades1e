@@ -24,6 +24,10 @@ int main(void)
 	eAbonado arrayAbonado [QTY_ABONADO];
 	inicializarAbonado(arrayAbonado,QTY_ABONADO);
 
+	hardCode(arrayAbonado,QTY_ABONADO,1,123,"Nahuel","Barrios");
+	hardCode(arrayAbonado,QTY_ABONADO,2,12554,"Gabriel","Gabito");
+	hardCode(arrayAbonado,QTY_ABONADO,3,14342,"Candelaria","Scanavino");
+
 	eLlamada arrayLlamada [QTY_LLAMADAS];
 	inicializarLlamada(arrayLlamada,QTY_LLAMADAS);
 
@@ -33,7 +37,7 @@ int main(void)
 
 	while (option!=7)
 	{
-		utn_getUnsignedInt("\nMENU\n1-Alta abonado\n2-modificar\n3-bajar\n4-alta llamada\nSeleccione opcion:","\nError\n",1,sizeof(int),1,7,3,&option);
+		utn_getUnsignedInt("\nMENU\n1-Alta abonado\n2-modificar\n3-bajar\n4-Inicio llamada\n5-Fin llamada\n6-Informes\nSeleccione opcion:","\nError\n",1,sizeof(int),1,7,3,&option);
 
 		switch(option)
 		{
@@ -55,7 +59,8 @@ int main(void)
 			finLlamada(arrayLlamada,QTY_LLAMADAS);
 			break;
 		case 6:
-
+			informes(arrayAbonado,QTY_ABONADO);
+			//imprimirLlamada(arrayLlamada,QTY_LLAMADAS,arrayAbonado,QTY_ABONADO);
 			break;
 		case 7:
 			printf("\nGracias vuelva pronto\n");

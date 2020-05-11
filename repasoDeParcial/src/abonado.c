@@ -11,6 +11,8 @@
 #include "utn.h"
 #include "abonado.h"
 
+
+
 int inicializarAbonado(eAbonado array[], int size)
 {
     int retorno=-1;
@@ -23,6 +25,17 @@ int inicializarAbonado(eAbonado array[], int size)
         retorno=0;
     }
     return retorno;
+}
+
+void hardCode(eAbonado array[],int size,int id,int numero,char name[],char lastName[])
+{
+	array[id].id = id;
+	array[id].numero = numero;
+	strcpy(array[id].nombre, name);
+	strcpy(array[id].apellido, lastName);
+	array[id].contReclamos = 0;
+	array[id].isEmpty = 0;
+
 }
 
 int altaAbonado(eAbonado array[], int size, int* contadorID)
@@ -40,6 +53,7 @@ int altaAbonado(eAbonado array[], int size, int* contadorID)
             (*contadorID)++;
             array[posicion].id=*contadorID;
             array[posicion].isEmpty=0;
+            array[posicion].contReclamos=0;
             utn_getUnsignedInt("\nNumero: ","\nError",1,1000000,1,100000,3,&array[posicion].numero);
             utn_getTexto("\nNombre: ","\nError",1,51,3,array[posicion].nombre);
             utn_getTexto("\nApellido: ","\nError",1,51,3,array[posicion].apellido);
@@ -146,6 +160,7 @@ int bajaAbonado(eAbonado array[], int sizeArray)
         {
             array[posicion].isEmpty=1;
             array[posicion].id=0;
+            array[posicion].contReclamos=0;
             array[posicion].numero=0;
             strcpy(array[posicion].nombre,"");
             strcpy(array[posicion].apellido,"");

@@ -13,35 +13,39 @@
 #include "abonado.h"
 #include "flag.h"
 
-
 int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],int size2)
 {
     int retorno=-1;
     int posicion;
+    int contReclamo= 0;
     int bufferIdAbonado;
     int posicion2;
-    if(array!=NULL && size>0 && contadorID!=NULL && array2!=NULL && size2>0)
+    if(array!=NULL && size>0 && contadorID!=NULL && array2!=NULL && size2>0) // Valido
     {
-        if(buscarEmptyLlamada(array,size,&posicion)==-1)
+        if(buscarEmptyLlamada(array,size,&posicion)==-1) // Recorro el isEmpty para averiguar si hay espacio
         {
             printf("\nNo hay lugares vacios");
         }
         else
         {
-        	utn_getUnsignedInt("\nIngrese el id Abonado: ","\nError.",1,sizeof(int),1,size,3,&bufferIdAbonado);
-        	if(buscarIdAbonado(array2,size2,bufferIdAbonado,&posicion2)==-1)
+        	utn_getUnsignedInt("\nIngrese el id Abonado: ","\nError.",1,sizeof(int),1,size,3,&bufferIdAbonado); // Pido un ud
+        	if(buscarIdAbonado(array2,size2,bufferIdAbonado,&posicion2)==-1) // Valido si existe o no
         	{
         		printf("\nNo Existe ese Id\n");
         	}
 
         	else
         	{
-
+        		// Si existe Cargo lo siguiente
             (*contadorID)++;
             array[posicion].idLlamada=*contadorID;
             array[posicion].isEmptyLlamada=0;
             array[posicion].idAbonado=bufferIdAbonado;
+            contReclamo=array2[bufferIdAbonado].contReclamos + 1;
+            array2[bufferIdAbonado].contReclamos = contReclamo;
+            printf("ContReclamos: %d",array2[bufferIdAbonado].contReclamos);
             utn_getTexto("\nIngrese motivo: FALLA 3G - FALLA LTE - FALLA EQUIPO ","\nError",1,51,3,array[posicion].motivo);
+
             strcpy(array[posicion].estado,"EN CURSO");
             printf("\nSu estado se encuentra EN CURSO\n");
 
@@ -54,4 +58,66 @@ int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],
     return retorno;
 }
 
+int informes (eAbonado array2[],int size2)
+{
+	int retorno = -1;
+	int i;
+	int flag = 0;
+	int maximo;
+	int id;
+	if(array2!=NULL && size2>0)
+	{
+		for (i=0;i < size2 ;i++) // Recorro el array
+		{
+			if(array2[i].isEmpty ==1) // si esta vacio q lo salte
+				continue;
+			if(flag ==0)
+			{
+			maximo = array2[i].contReclamos; // le asigno el 1er valor a maximo
+			id = array2[i].id;// le asigno el 1er id del abonado a id.
+			flag =1; // flag =1. No entra mas a este if
+			}
+			else
+			{
+				if(array2[i].contReclamos > maximo) // Saco maximo
+				{
+					maximo = array2[i].contReclamos; // si el nuevo contReclamos es mas grande que el anterior se le asigna a maximo
+					id = array2[i].id; // le asigno el id del nuevo maximo
+				}
 
+			}
+
+		}
+
+		printf("\n\nAbonado con mas reclamos:\nid: %d\nNombre: %s\nApellido: %s\nCant de reclamos: %d\n",id,array2[id].nombre,array2[id].apellido,maximo); // Lo imprimo
+		retorno = 0;
+	}
+
+
+	return retorno;
+}
+
+/*
+int imprimirLlamada(eLlamada array[], int size,eAbonado array2[],int size2)
+{
+    int retorno=-1;
+        int i;
+        if(array!=NULL && size>0 && array2!=NULL && size2>0)
+            {
+            for(i=0;i<size;i++)
+            {
+                if(array[i].isEmptyLlamada==1 &&array2[i].isEmpty==1 )
+                    continue;
+                else
+                    if(array[i].idLlamada>0){
+                    printf("\n**\nID LLAMADA:[ %d ]\nMotivo del Reclamo:[ %d ]\n (1-FALLA 3G / 2-FALLA LTE  /  3-FALLA EQUIPO) \n\n**\n\nApellido del Abonado :[ %s ]\Nombre del Abonado :[ %s ]",
+                                                array[i].idLlamada,array[i].motivo,array2[i].apellido,array2[i].nombre);
+            }}
+
+            retorno=0;
+        }
+        return retorno;
+
+
+}
+*/

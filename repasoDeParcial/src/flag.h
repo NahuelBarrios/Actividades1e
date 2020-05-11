@@ -10,4 +10,8 @@
 
 int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],int size2);
 
+int informes (eAbonado array2[],int size2);
+
+//int imprimirLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],int size2);
+
 #endif /* FLAG_H_ */
