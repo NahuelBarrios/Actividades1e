@@ -20,6 +20,9 @@ int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],
     int contReclamo= 0;
     int bufferIdAbonado;
     int posicion2;
+    int motivo1 = 0;
+    int motivo2 = 0;
+    int motivo3 = 0;
     if(array!=NULL && size>0 && contadorID!=NULL && array2!=NULL && size2>0) // Valido
     {
         if(buscarEmptyLlamada(array,size,&posicion)==-1) // Recorro el isEmpty para averiguar si hay espacio
@@ -45,7 +48,20 @@ int inicioLlamada(eLlamada array[], int size, int* contadorID,eAbonado array2[],
             array2[bufferIdAbonado].contReclamos = contReclamo;
             printf("ContReclamos: %d",array2[bufferIdAbonado].contReclamos);
             utn_getTexto("\nIngrese motivo: FALLA 3G - FALLA LTE - FALLA EQUIPO ","\nError",1,51,3,array[posicion].motivo);
+            if(strcmp(array[posicion].motivo,"FALLA 3G"))
+           	{
+            	motivo1++;
 
+      		}
+            if(strcmp(array[posicion].motivo,"FALLA LTE"))
+            {
+            	motivo2++;
+            }
+            if(strcmp(array[posicion].motivo,"FALLA EQUIPO"))
+            {
+            	motivo3++;
+            }
+            informe2(motivo1,motivo2,motivo3);
             strcpy(array[posicion].estado,"EN CURSO");
             printf("\nSu estado se encuentra EN CURSO\n");
 
@@ -65,6 +81,7 @@ int informes (eAbonado array2[],int size2)
 	int flag = 0;
 	int maximo;
 	int id;
+
 	if(array2!=NULL && size2>0)
 	{
 		for (i=0;i < size2 ;i++) // Recorro el array
@@ -90,12 +107,44 @@ int informes (eAbonado array2[],int size2)
 		}
 
 		printf("\n\nAbonado con mas reclamos:\nid: %d\nNombre: %s\nApellido: %s\nCant de reclamos: %d\n",id,array2[id].nombre,array2[id].apellido,maximo); // Lo imprimo
+
+		if (auxMotivo1 > auxMotivo2 && auxMotivo1>auxMotivo3)
+					{
+						MotivoMaximo = auxMotivo1;
+						printf("\nEl reclamo mas realizado fue: FALLA 3G. con %d de reclamos.\n",MotivoMaximo);
+				 	 }
+					else if (auxMotivo2 > auxMotivo1 && auxMotivo2>auxMotivo3)
+					{
+						MotivoMaximo = auxMotivo2;
+						printf("\nEl reclamo mas realizado fue: FALLA LTE. con %d de reclamos.\n",MotivoMaximo);
+					}
+				else
+					{
+						MotivoMaximo = auxMotivo3;
+						printf("\nEl reclamo mas realizado fue: FALLA EQUIPO. con %d de reclamos.\n",MotivoMaximo);
+					}
+
+
 		retorno = 0;
-	}
-
-
+		}
 	return retorno;
 }
+
+int informe2 (int motivo1,int motivo2, int motivo3)
+{
+	int auxMotivo1 = 0;
+	int auxMotivo2 = 0;
+	int auxMotivo3 = 0;
+	int MotivoMaximo;
+
+	auxMotivo1 = auxMotivo1 + motivo1;
+	auxMotivo2 = auxMotivo2+ motivo2;
+	auxMotivo3 = auxMotivo3 + motivo3;
+
+
+	return 0;
+}
+
 
 /*
 int imprimirLlamada(eLlamada array[], int size,eAbonado array2[],int size2)

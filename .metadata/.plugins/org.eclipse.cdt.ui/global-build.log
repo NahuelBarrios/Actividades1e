@@ -1,5 +1,4 @@
-03:50:39 **** Incremental Build of configuration Debug for project repasoDeParcial ****
+04:06:11 **** Incremental Build of configuration Debug for project repasoDeParcial ****
 Info: Internal Builder is used for build
 gcc -o repasoDeParcial.exe "src\\abonado.o" "src\\flag.o" "src\\llamada.o" "src\\repasoDeParcial.o" "src\\utn.o" 
-Info: Nothing to build for repasoDeParcial
 Info: Nothing to build for repasoDeParcial
