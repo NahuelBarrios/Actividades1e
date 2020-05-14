@@ -53,7 +53,7 @@ int finLlamada(eLlamada array[], int size)
     int option;
     if(array!=NULL && size>0)
     {
-    	utn_getUnsignedInt("\nIngrese el id Abonado: ","\nError.",1,sizeof(int),1,size,3,&id);
+    	utn_getUnsignedInt("\nIngrese el id de llamada: ","\nError.",1,sizeof(int),1,size,3,&id);
     	        	if(buscarIdLlamada(array,size,id,&posicion)==-1)
     	        	{
     	        		printf("\nNo Existe ese Id\n");
@@ -62,7 +62,7 @@ int finLlamada(eLlamada array[], int size)
     	        	else
     	        	{
 
-    	        		utn_getFloat("\nTiempo insumido (EN SEGUNDOS): ","\nError",1,sizeof(float),1,1000,3,&array[posicion].tiempoInsumido);
+    	        		utn_getUnsignedInt("\nTiempo insumido (EN SEGUNDOS): ","\nError",1,10000,1,1000,3,&array[posicion].tiempoInsumido);
     	        		utn_getUnsignedInt("\nSu estado esta: \n1-Solucionado\n2-No solucionado: ","\nError.",1,sizeof(int),1,size,3,&option);
     	        		switch(option)
     	        		{

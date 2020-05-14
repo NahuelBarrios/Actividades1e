@@ -12,9 +12,9 @@ typedef struct
 {
 	int idLlamada;
 	int idAbonado;
-	char motivo[51];// "Falla 3G" - "FALLA LTE" - "FALLA EQUIPO"
+	int motivo;// "Falla 3G" - "FALLA LTE" - "FALLA EQUIPO"
 	char estado[51];// "En curso" - "Solucionado" - "No Solucionado"
-	float tiempoInsumido;
+	int tiempoInsumido;
 	int isEmptyLlamada;
 }eLlamada;
 

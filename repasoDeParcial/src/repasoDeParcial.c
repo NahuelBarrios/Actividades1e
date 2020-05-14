@@ -34,6 +34,9 @@ int main(void)
 	int option;
 	int idAbonado = 0;
 	int idLlamada = 0;
+	int motivo1 = 0;
+	int motivo2 = 0;
+	int motivo3 = 0;
 
 	while (option!=7)
 	{
@@ -53,13 +56,14 @@ int main(void)
 			bajaAbonado(arrayAbonado,QTY_ABONADO);
 			break;
 		case 4:
-			inicioLlamada(arrayLlamada,QTY_LLAMADAS,&idLlamada,arrayAbonado,QTY_ABONADO);
+			inicioLlamada(arrayLlamada,QTY_LLAMADAS,&idLlamada,arrayAbonado,QTY_ABONADO,&motivo1,&motivo2,&motivo3);
 			break;
 		case 5:
 			finLlamada(arrayLlamada,QTY_LLAMADAS);
 			break;
 		case 6:
-			informes(arrayAbonado,QTY_ABONADO);
+			informes(arrayAbonado,QTY_ABONADO,motivo1,motivo2,motivo3);
+			reclamoMasDemora(arrayLlamada,QTY_LLAMADAS);
 			//imprimirLlamada(arrayLlamada,QTY_LLAMADAS,arrayAbonado,QTY_ABONADO);
 			break;
 		case 7:
