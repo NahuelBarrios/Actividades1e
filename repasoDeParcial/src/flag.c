@@ -135,11 +135,11 @@ int reclamoMasDemora(eLlamada arrayLlamada[],int sizeLlamada) // 3er informe
 {
 	int retorno = -1;
 	int j;
-	int acumulador1erMotivo = 0;
+	float acumulador1erMotivo = 0;
 	int cont1erMotivo = 0;
-	int acumulador2doMotivo = 0;
+	float acumulador2doMotivo = 0;
 	int cont2doMotivo = 0;
-	int acumulador3erMotivo = 0;
+	float acumulador3erMotivo = 0;
 	int cont3erMotivo = 0;
 	float promedio1erMotivo;
 	float promedio2doMotivo;
