@@ -8,10 +8,7 @@
  ============================================================================
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
+/*
 	typedef struct{
 	    int dia;
 	    int mes;
@@ -29,7 +26,7 @@ int main(void)
 {
 	setbuf(stdout,NULL);
 
-	//*** UNA ESTRUCTURA
+	 UNA ESTRUCTURA
 	    EPersona per, *ptrPer, pers[2], *ptrPers;
 	    int i;
 	​
@@ -135,12 +132,20 @@ int main(void)
 	    return 0;
 }
 
-/*
- Array de Estructura en memoria dinamica
-Constructor
-​
+*/
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "person.h"
+ //Array de Estructura en memoria dinamica
+//Constructor
+
 int main()
 {
+	setbuf(stdout,NULL);
     Person* personArray[3];
     int i;
     for(i = 0; i < 3; i++)
@@ -162,9 +167,9 @@ int main()
     {
         person_free(personArray[i]);
     }
-​
+
     return 0;
 }
 
- */
+
 
