@@ -1,51 +1,5 @@
-21:05:14 **** Rebuild of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ParcialPelicula.o" "..\\src\\ParcialPelicula.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\linkedlist.o" "..\\src\\linkedlist.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pelicula.o" "..\\src\\pelicula.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\utn.o" "..\\src\\utn.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-21:30:25 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\ParcialPelicula.o" "..\\src\\ParcialPelicula.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-..\src\controller.c: In function 'controller_informes':
-..\src\controller.c:204:3: warning: implicit declaration of function 'utn_getInt' [-Wimplicit-function-declaration]
-  204 |   utn_getInt(&auxSala,"\nIngrese una sala: " ,"\nError\n",1,10,3);
-      |   ^~~~~~~~~~
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-21:30:43 **** Incremental Build of configuration Debug for project ParcialPelicula ****
+22:48:40 **** Incremental Build of configuration Debug for project productos ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-21:35:36 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-21:36:29 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-21:38:31 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\pelicula.o" "..\\src\\pelicula.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-Info: Nothing to build for ParcialPelicula
-21:41:47 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
-21:47:56 **** Incremental Build of configuration Debug for project ParcialPelicula ****
-Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
-gcc -o ParcialPelicula.exe "src\\ParcialPelicula.o" "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\pelicula.o" "src\\utn.o" 
-Info: Nothing to build for ParcialPelicula
+gcc -o productos "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\productos.o" "src\\utn.o" "src\\ventas.o" 
+Info: Nothing to build for productos
