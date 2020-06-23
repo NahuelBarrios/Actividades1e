@@ -67,7 +67,7 @@ int informe(char* path,LinkedList* pArrayVentas)
 
 int cantVendida(void* p)
 {
-	int retorno=-1;
+	int retorno=0;
 	eVentas* pVentas;
 	int cant;
 

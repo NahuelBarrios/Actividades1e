@@ -1,5 +1,5 @@
-22:48:40 **** Incremental Build of configuration Debug for project productos ****
+22:54:21 **** Incremental Build of configuration Debug for project productos ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
 gcc -o productos "src\\controller.o" "src\\linkedlist.o" "src\\parser.o" "src\\productos.o" "src\\utn.o" "src\\ventas.o" 
 Info: Nothing to build for productos

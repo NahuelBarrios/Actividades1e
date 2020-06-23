@@ -29,7 +29,6 @@ int parser_loadData(FILE* pFile,LinkedList* pArrayListVentas)
 				pVentas = ventas_newParametros(idVenta,fechaVenta,codigoProducto,cantidad,precio,cuitCliente);
 				if(pVentas != NULL)
 				{
-					printf("%s,%s,%s,%s,%s,%s\n",idVenta,fechaVenta,codigoProducto,cantidad,precio,cuitCliente);
 					ll_add(pArrayListVentas,pVentas);
 					retorno = 0;
 				}
