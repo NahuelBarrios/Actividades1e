@@ -115,12 +115,17 @@ int cantLCDFunc(void* p)
 {
 	int retorno = 0;
 	eVentas* pVentas;
+	int cant;
 
 	if(p != NULL)
 	{
 		pVentas = (eVentas*)p;
 		if(strcmp(pVentas->codigoProducto,"LCD_TV")==0)
-			retorno = 1;
+		{
+			cant=pVentas->cantidad;
+			retorno = cant;
+		}
+
 	}
 	return retorno;
 }
